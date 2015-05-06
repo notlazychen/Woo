@@ -1,0 +1,34 @@
+﻿@using Woo
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>无限城</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/github-light.css" media="screen">
+</head>
+<body>
+    <section class="page-header">
+        <h1 class="project-name">无限城</h1>
+        <h2 class="project-tagline">寻找那一片在我梦里的干净天空</h2>
+    </section>
+<section class="main-content">
+    @foreach (Article article in Model.Articles)
+    {
+        <div>
+            <a href="/@article.Link/"><h1>@article.Title </h1></a>
+            <label>@article.Description</label>
+        </div>
+    }
+</section>
+    <section class="main-content">
+        <footer class="site-footer">
+            <small>©陈惊蛰 2015</small>
+            <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254931183'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1254931183%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+        </footer>
+    </section>
+</body>
+</html>

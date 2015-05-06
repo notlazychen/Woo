@@ -1,0 +1,5 @@
+﻿<NavigationWindow x:Class="Woo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Icon="favicon.ico"
+        Title="Woo Static HTML Generator" Height="660" Width="1024" ShowsNavigationUI="False" Source="PageIndex.xaml">
+</NavigationWindow>

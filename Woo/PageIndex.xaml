@@ -1,0 +1,45 @@
+﻿<Page x:Class="Woo.PageIndex"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:woo="clr-namespace:Woo"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800" Background="Black"
+	Title="PageIndex">
+    <Page.Resources>
+        <Style x:Key="ItemStyle" TargetType="{x:Type ListViewItem}">
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <EventSetter Event="MouseDoubleClick" Handler="ListViewTitle_OnMouseDoubleClick" />
+        </Style>
+        <woo:DateTime2StringConverter x:Key="DateTimeConverter" />
+    </Page.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="46"></RowDefinition>
+        </Grid.RowDefinitions>
+        <ListView Grid.Row="1" x:Name="ListViewTitle" FontSize="28"
+                  Foreground="Chocolate" Background="Transparent" ItemContainerStyle="{StaticResource ItemStyle}" BorderThickness="0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="" Width="140">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button DataContext="{Binding}" Click="ButtonRemove_OnClick">DEL</Button>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Title" Width="200" DisplayMemberBinding="{Binding Title}" />
+                    <GridViewColumn Header="Link" Width="140" DisplayMemberBinding="{Binding Link}" />
+                    <GridViewColumn Header="Author" Width="140" DisplayMemberBinding="{Binding Author}" />
+                    <GridViewColumn Header="Description" Width="320" DisplayMemberBinding="{Binding Description}" />
+                    <GridViewColumn Header="UpdateTime" Width="300" DisplayMemberBinding="{Binding WriteTime, Converter={StaticResource DateTimeConverter}}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Grid.Row="2" x:Name="BtnAdd" Content="Add" HorizontalAlignment="Left" Width="160" Margin="4,4,4,10" Click="BtnAdd_OnClick"></Button>
+        <Button Grid.Row="2" x:Name="BtnOutput" Content="Export" HorizontalAlignment="Right" Width="160" Margin="0,4,4,10" Click="BtnOutput_OnClick"></Button>
+    </Grid>
+</Page>
