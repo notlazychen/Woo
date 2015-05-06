@@ -40,7 +40,10 @@ namespace Woo
                 WindowStyle = WindowStyle.None,
                 Opacity = 0.01,
                 Background = Brushes.White,
-                Owner = Application.Current.MainWindow
+                Owner = Application.Current.MainWindow,
+                ShowInTaskbar = false,
+                ShowActivated = false,
+                Focusable = false
             };
 
             ArticleContentPreview.SizeChanged += ArticleContentPreview_SizeChanged;
@@ -78,7 +81,7 @@ namespace Woo
         void ArticleContentPreview_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             SetWebViewPosition();
-            _ow.Width = ArticleContentPreview.ActualWidth;
+            _ow.Width = ArticleContentPreview.ActualWidth - 20;
             _ow.Height = ArticleContentPreview.ActualHeight;
         }
 
